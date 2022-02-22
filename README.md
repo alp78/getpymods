@@ -5,8 +5,6 @@ Extract all modules from Python files within a nested folder
 
 - IMPORTED: list of all external modules installed
 - STANDARD: list of modules part of the Python standard library
-- POETRY: string to add all external modules in a virtualenv
-
 
 
 USAGE:

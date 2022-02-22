@@ -1,3 +1,5 @@
+# takes a .py filepath as arg = '/Users/alex.pal/Desktop/UVIPR/eu-trd-undervalued-master/airflow/dags/batch_predict_dev.py'
+
 from sys import argv, version_info
 from json import dumps
 from os import path, walk
@@ -21,7 +23,6 @@ modules = set()
 for module in findall(r'#module-(.*?)[\'"]', page.decode('ascii', 'replace')):
     module = module.split(".")[0]
     std_mods.append(module)
-
 std_mods = sorted(std_mods)
 
 
@@ -63,8 +64,6 @@ for mod in all_mods:
 
 mod_dic['STANDARD'] = sorted(std_modules)
 mod_dic['IMPORTED'] = sorted(imp_modules)
-mod_dic['POETRY'] = 'poetry add ' + ', '.join(sorted(imp_modules))
-
 
 output_file = f'IMPORT_MODS.json'
 
