@@ -1,0 +1,28 @@
+{
+    "STANDARD": [
+        "datetime",
+        "email",
+        "logging",
+        "os",
+        "re",
+        "sys",
+        "time",
+        "urllib",
+        "warnings"
+    ],
+    "IMPORTED": [
+        "airflow",
+        "azure",
+        "click",
+        "joblib",
+        "lightgbm",
+        "loguru",
+        "mlflow",
+        "nltk",
+        "numpy",
+        "pandas",
+        "phonenumbers",
+        "setuptools",
+        "teradatasql"
+    ]
+}

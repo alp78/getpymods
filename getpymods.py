@@ -30,7 +30,12 @@ std_mods = sorted(std_mods)
 walk_dir = path.abspath(walk_dir)
 _files = []
 
+local_modules = []
+
 for root, subfolders, files in walk(walk_dir):
+    if path.exists(path.join(root, '__init__.py')):
+        dir_name = root.split('/')[-1]
+        local_modules.append(dir_name)
     for _file in files:
         if _file.endswith('py') and not _file.startswith('__init__'): 
             filepath = path.join(root, _file)
@@ -59,7 +64,7 @@ imp_modules = []
 for mod in all_mods:
     if mod in std_mods:
         std_modules.append(mod)
-    else:
+    elif not mod in local_modules:
         imp_modules.append(mod)
 
 mod_dic['STANDARD'] = sorted(std_modules)
