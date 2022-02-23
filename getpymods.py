@@ -32,7 +32,7 @@ for module in findall(r'#module-(.*?)[\'"]', page.decode('ascii', 'replace')):
 # extract all import statements from all files in folder and extract modules
 walk_dir = path.abspath(walk_dir)
 _files = []
-
+_filenames = []
 local_modules = []
 
 for root, subfolders, files in walk(walk_dir):
@@ -43,6 +43,7 @@ for root, subfolders, files in walk(walk_dir):
         if _file.endswith('py') and not _file.startswith('__init__'): 
             filepath = path.join(root, _file)
             _files.append(filepath)
+            _filenames.append(_file.split('.')[0])
 
 all_mods = []
 for _file in _files:
@@ -67,8 +68,9 @@ imp_modules = []
 for mod in all_mods:
     if mod in std_mods:
         std_modules.append(mod)
-    elif not mod in local_modules:
+    elif not mod in local_modules and not mod in _filenames:
         imp_modules.append(mod)
+    
 
 mod_dic['STANDARD'] = sorted(std_modules)
 mod_dic['IMPORTED'] = sorted(imp_modules)
