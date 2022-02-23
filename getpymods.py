@@ -23,7 +23,6 @@ modules = set()
 for module in findall(r'#module-(.*?)[\'"]', page.decode('ascii', 'replace')):
     module = module.split(".")[0]
     std_mods.append(module)
-std_mods = sorted(std_mods)
 
 
 # extract all import statements from all files in folder and extract modules
