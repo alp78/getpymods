@@ -1,7 +1,7 @@
 # getpymods
-Extract all modules from Python files within a nested folder
+Extract all modules used in Python files within a nested folder
 
--> creates a JSON with 2 keys in script folder:
+--> creates a JSON with two keys in script folder:
 
 - IMPORTED: list of all external modules installed
 - STANDARD: list of modules part of the Python standard library
