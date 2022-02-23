@@ -7,8 +7,12 @@ from re import findall
 from urllib.request import urlopen
 
 walk_dir = argv[1]
-py_version = argv[2]
 
+try:
+    py_version = argv[2]
+except:
+    py_version = None
+    pass
 
 # create a list of all modules of the python standard library 
 std_mods = []
