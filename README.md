@@ -9,8 +9,8 @@ Extract all modules used in Python files within a nested folder
 
 USAGE:
 
-- takes 2 arguments: 
-1) project's absolute path
+- takes two arguments: 
+1) project's absolute path (required)
 2) Python version (optional)
 
 python3 getpymods.py [dir_absolute_path] [python_version]
