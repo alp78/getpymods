@@ -1,5 +1,3 @@
-# takes a .py filepath as arg = '/Users/alex.pal/Desktop/UVIPR/eu-trd-undervalued-master/airflow/dags/batch_predict_dev.py'
-
 from sys import argv, version_info
 from json import dumps
 from os import path, walk
