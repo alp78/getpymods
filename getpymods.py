@@ -47,19 +47,23 @@ for root, subfolders, files in walk(walk_dir):
 
 all_mods = []
 for _file in _files:
-    with open(_file, 'r') as f:
-        statements = f.readlines()
+    
+    try:
+        with open(_file, 'r') as f:
+            statements = f.readlines()
 
-    for line in statements:
-        if line.startswith('from'):
-            elements = line.split(' ')
-            module = elements[1].split('.')[0]
-            if module not in all_mods: all_mods.append(module)
+        for line in statements:
+            if line.startswith('from') and 'import' in line:
+                elements = line.split(' ')
+                module = elements[1].split('.')[0]
+                if module not in all_mods: all_mods.append(module)
 
-        if line.startswith('import'):
-            elements = line.split(' ')
-            module = elements[1].rstrip('\n').rstrip(',').split('.')[0]
-            if module not in all_mods: all_mods.append(module)
+            if line.startswith('import'):
+                elements = line.split(' ')
+                module = elements[1].rstrip('\n').rstrip(',').split('.')[0]
+                if module not in all_mods: all_mods.append(module)
+    except:
+        continue
 
 mod_dic = {}
 std_modules = []
